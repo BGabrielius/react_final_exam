@@ -1,0 +1,23 @@
+### -- POST - new registration
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "fullname": "Sam",
+    "email": "Sam@gmail.com",
+    "date": "06-sep-22",
+    "time": "9:30"
+}
+
+### -- GET - get all users
+GET http://localhost:5000/api/users
+
+
+### -- PUT - update user
+PUT http://localhost:5000/api/users/id
+Content-Type: application/json
+
+
+### -- DELETE - delete existing user
+DELETE http://localhost:5000/api/users/id
+Content-Type: application/json
