@@ -14,19 +14,13 @@ class API {
     return data;
   }
 
-  async updateUser(userData) {
-    const { data } = await axios.get(
-      HOST + `/api/users/${userData._id}`,
-      userData
-    );
+  async updateUser(id, userData) {
+    const { data } = await axios.put(HOST + `/api/users/${id}`, userData);
 
     return data;
   }
-  async deleteUser(userData) {
-    const { data } = await axios.get(
-      HOST + `/api/users/${userData._id}`,
-      userData
-    );
+  async deleteUser(id) {
+    const { data } = await axios.delete(HOST + `/api/users/${id}`);
 
     return data;
   }

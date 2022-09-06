@@ -65,7 +65,16 @@ app.get(
 app.put(
   "/api/users/:id",
   asyncHandler(async (req, res) => {
-    res.send("Logic not implemented");
+    const userId = req.params.id;
+    const dataToUpdate = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(userId, dataToUpdate);
+
+    if (!updatedUser) {
+      res.status(400).send("Something went wrong, user has not been updated");
+      throw new Error("Something went wrong, user has not been updated");
+    }
+    res.send("User updated successfully");
   })
 );
 
@@ -73,7 +82,15 @@ app.put(
 app.delete(
   "/api/users/:id",
   asyncHandler(async (req, res) => {
-    res.send("Logic not implemented");
+    const userId = req.params.id;
+
+    const deletedUser = await User.findByIdAndDelete(userId);
+
+    if (!deletedUser) {
+      res.status(400).send("Something went wrong, user has not been deleted");
+      throw new Error("Something went wrong, user has not been deleted");
+    }
+    res.send("User deleted successfully");
   })
 );
 

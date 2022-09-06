@@ -14,10 +14,14 @@ GET http://localhost:5000/api/users
 
 
 ### -- PUT - update user
-PUT http://localhost:5000/api/users/id
+PUT http://localhost:5000/api/users/63164555b1a5711035155524
 Content-Type: application/json
+
+{
+    "fullname": "Dam"
+}
 
 
 ### -- DELETE - delete existing user
-DELETE http://localhost:5000/api/users/id
+DELETE http://localhost:5000/api/users/63164555b1a5711035155524
 Content-Type: application/json
