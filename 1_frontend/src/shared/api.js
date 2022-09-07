@@ -8,8 +8,8 @@ class API {
 
     return data;
   }
-  async getUsers() {
-    const { data } = await axios.get(HOST + "/api/users");
+  async getUsers(page) {
+    const { data } = await axios.get(HOST + `/api/users?page=${page}`);
 
     return data;
   }

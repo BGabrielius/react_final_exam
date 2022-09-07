@@ -1,7 +1,11 @@
-import React from "react";
+import { StyledButton } from "./Button.style";
 
-const Button = ({ text, action }) => {
-  return <button onClick={action}>{text}</button>;
+const Button = ({ text, action, userId }) => {
+  return (
+    <StyledButton onClick={action} data-user-id={userId}>
+      {text}
+    </StyledButton>
+  );
 };
 
 export default Button;

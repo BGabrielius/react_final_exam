@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createUser } from "../../redux/actions/userActions";
+import { createUser, getAllUsers } from "../../redux/actions/userActions";
 
 import {
   StyledFormWrapper,
@@ -14,7 +14,7 @@ const Form = () => {
     fullname: "",
     email: "",
     date: "",
-    time: "",
+    time: "8:00",
   });
   const {
     loading,
@@ -24,9 +24,11 @@ const Form = () => {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createUser(user));
+    await dispatch(createUser(user));
+
+    await dispatch(getAllUsers(1));
   };
   return (
     <StyledFormWrapper>
