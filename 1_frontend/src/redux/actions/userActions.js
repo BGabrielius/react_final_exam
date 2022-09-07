@@ -5,6 +5,12 @@ import {
   USER_GETALL_REQUEST,
   USER_GETALL_SUCCESS,
   USER_GETALL_FAIL,
+  USER_UPDATE_REQUEST,
+  USER_UPDATE_SUCCESS,
+  USER_UPDATE_FAIL,
+  USER_DELETE_REQUEST,
+  USER_DELETE_SUCCESS,
+  USER_DELETE_FAIL,
 } from "../constants/userConstants";
 
 import api from "../../shared/api";
@@ -23,16 +29,43 @@ export const createUser = (user) => async (dispatch) => {
   }
 };
 
-export const getAllUsers = () => async (dispatch) => {
+export const getAllUsers = (page) => async (dispatch) => {
   try {
     dispatch({ type: USER_GETALL_REQUEST });
 
-    const data = await api.getUsers();
-    // console.log("123", data);
+    const data = await api.getUsers(page);
 
     dispatch({ type: USER_GETALL_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: USER_GETALL_FAIL, payload: error.message });
+    console.log(error.message);
+  }
+};
+
+export const updateOneUser = (id, user) => async (dispatch) => {
+  try {
+    dispatch({ type: USER_UPDATE_REQUEST });
+
+    const data = await api.updateUser(id, user);
+    console.log("123", data);
+
+    dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: USER_UPDATE_FAIL, payload: error.message });
+    console.log(error.message);
+  }
+};
+
+export const deleteOneUser = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: USER_DELETE_REQUEST });
+
+    const data = await api.deleteUser(id);
+    console.log("123", data);
+
+    dispatch({ type: USER_DELETE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: USER_DELETE_FAIL, payload: error.message });
     console.log(error.message);
   }
 };

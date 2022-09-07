@@ -42,6 +42,8 @@ export const StyledForm = styled.form`
     font-size: 16px;
     &:hover {
       cursor: pointer;
+      background-color: #c0c0c0;
+      color: #fff;
     }
     margin-top: 1em;
   }

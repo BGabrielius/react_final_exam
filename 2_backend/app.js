@@ -51,9 +51,23 @@ app.get(
   "/api/users",
   asyncHandler(async (req, res) => {
     const users = await User.find();
+    if (req.query.page) {
+      const page = parseInt(req.query.page);
+      const limit = 10;
 
-    if (users) {
-      res.status(200).json({ users });
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+
+      const paginatedUsers = await users.slice(startIndex, endIndex);
+
+      if (paginatedUsers)
+        res
+          .status(200)
+          .json({
+            allUsers: users,
+            paginatedUsers: paginatedUsers,
+            total: users.length,
+          });
     } else {
       res.status(400).send("An error has accured");
       throw new Error("An error has accured");
