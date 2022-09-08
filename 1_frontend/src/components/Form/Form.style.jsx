@@ -6,12 +6,16 @@ export const StyledFormWrapper = styled.div`
   justify-content: center;
 
   margin-top: 2em;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #f8fafb;
+  box-shadow: 0px 3px 8px 7px #e3e3ee;
 
-  background-color: #f5f5f5;
+  border-radius: 20px;
 
-  border-radius: 5px;
-  border: 1px solid #c0c0c0;
+  h1 {
+    color: gray;
+  }
 `;
 
 export const StyledForm = styled.form`
@@ -28,6 +32,8 @@ export const StyledForm = styled.form`
     align-self: flex-start;
     padding-left: 4.4em;
     gap: 0.5em;
+    color: gray;
+    font-weight: 600;
   }
   .submit-btn {
     border: 1px solid #c0c0c0;
@@ -37,7 +43,7 @@ export const StyledForm = styled.form`
     height: 30px;
 
     background-color: #fff;
-    color: #000;
+    color: gray;
 
     font-size: 16px;
     &:hover {
@@ -65,6 +71,8 @@ export const StyledInputCointainer = styled.div`
   label {
     align-self: flex-start;
     padding-left: 4em;
+    color: gray;
+    font-weight: 600;
 
     font-size: 18px;
   }

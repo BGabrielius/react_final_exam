@@ -14,7 +14,7 @@ GET http://localhost:5000/api/users?page=1
 
 
 ### -- PUT - update user
-PUT http://localhost:5000/api/users/63164555b1a5711035155524
+PUT http://localhost:5000/api/users/631a098445ede2ea1e82d831
 Content-Type: application/json
 
 {
@@ -23,5 +23,5 @@ Content-Type: application/json
 
 
 ### -- DELETE - delete existing user
-DELETE http://localhost:5000/api/users/63164555b1a5711035155524
+DELETE http://localhost:5000/api/users/631a098445ede2ea1e82d831
 Content-Type: application/json
