@@ -1,12 +1,10 @@
 import "./App.css";
-import Form from "./components/Form";
-import Table from "./components/Table/Table";
+import AppointmentPage from "./pages/AppointmentPage/AppointmentPage";
 
 function App() {
   return (
     <div className="App">
-      <Form />
-      <Table />
+      <AppointmentPage />
     </div>
   );
 }

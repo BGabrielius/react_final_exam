@@ -61,13 +61,15 @@ app.get(
       const paginatedUsers = await users.slice(startIndex, endIndex);
 
       if (paginatedUsers)
-        res
-          .status(200)
-          .json({
-            allUsers: users,
-            paginatedUsers: paginatedUsers,
-            total: users.length,
-          });
+        res.status(200).json({
+          allUsers: users,
+          paginatedUsers: paginatedUsers,
+          total: users.length,
+        });
+      else {
+        res.status(400).send("An error has accured");
+        throw new Error("An error has accured");
+      }
     } else {
       res.status(400).send("An error has accured");
       throw new Error("An error has accured");
